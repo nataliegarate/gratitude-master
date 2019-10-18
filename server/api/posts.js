@@ -6,7 +6,7 @@ module.exports = router
 router.post('/', async (req, res, next) => {
   try {
     const createdPost = await Post.create({
-      post: req.body,
+      content: req.body,
       userId: req.user.id
     })
     res.json(createdPost)
