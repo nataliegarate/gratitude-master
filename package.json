@@ -1,7 +1,7 @@
 {
-  "name": "task-master",
+  "name": "gratitude-master",
   "version": "2.0.0",
-  "description": "Some boilerplate code to get you started - get shakin'!",
+  "description": "app that helps people increase their happiness via graditute tracking",
   "engines": {
     "node": ">= 7.0.0"
   },
