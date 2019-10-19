@@ -5,8 +5,9 @@ module.exports = router
 //POST route to add a new post
 router.post('/', async (req, res, next) => {
   try {
+    // req.body.userId = req.user.id
     const createdPost = await Post.create({
-      content: req.body,
+      content: req.body.post,
       userId: req.user.id
     })
     res.json(createdPost)

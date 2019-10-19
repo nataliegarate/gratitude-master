@@ -1,6 +1,6 @@
 import React from 'react'
-// import { connect } from "react-redux"
-// import thunk here
+import {connect} from 'react-redux'
+import {requestAddPost} from '../store/post'
 
 class AddPostForm extends React.Component {
   constructor(props) {
@@ -33,7 +33,6 @@ class AddPostForm extends React.Component {
           <form onSubmit={this.handleSubmit}>
             <label htmlFor="post"> Today, I am thankful for... </label>
             <br />
-
             <input
               name="post"
               value={this.state.post}
@@ -49,20 +48,10 @@ class AddPostForm extends React.Component {
   }
 }
 
-export default AddPostForm
+const mapDispatchToProps = dispatch => {
+  return {
+    requestAddPost: post => dispatch(requestAddPost(post))
+  }
+}
 
-// const mapStateToProps = state => {
-//   return {
-//   };
-// };
-
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     requestAddPost: post => dispatch(requestAddPost(post))
-//   };
-// };
-
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(AddPostForm);
+export default connect(null, mapDispatchToProps)(AddPostForm)

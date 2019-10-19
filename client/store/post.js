@@ -22,9 +22,11 @@ const addPost = post => ({type: ADD_POST, post})
 /**
  * THUNK CREATORS
  */
-export const me = () => async dispatch => {
+export const requestAddPost = post => async dispatch => {
   try {
-    const res = await axios.post('/api/post')
+    console.log('NATALIE', post)
+    console.log('i made it here')
+    const res = await axios.post('/api/posts', post)
     dispatch(addPost(res.data))
   } catch (err) {
     console.error(err)
