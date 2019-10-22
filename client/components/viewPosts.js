@@ -7,8 +7,23 @@ class viewPosts extends React.Component {
     this.props.requestViewPosts()
   }
   render() {
-    console.log(this.props)
-    return <div id="postsBox">hello</div>
+    const allPosts = this.props.posts.all.reverse()
+    return (
+      <div>
+        <h4> Your Posts </h4>
+        <div id="posts">
+          {allPosts.map(post => {
+            return (
+              <div className="singlePost" key={post.id}>
+                <p>
+                  {post.content} <br />Created at: {post.createdAt.slice(0, 10)}
+                </p>
+              </div>
+            )
+          })}
+        </div>
+      </div>
+    )
   }
 }
 
