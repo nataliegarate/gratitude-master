@@ -33,9 +33,9 @@ export const requestAddPost = post => async dispatch => {
   }
 }
 
-export const requestViewPosts = id => async dispatch => {
+export const requestViewPosts = () => async dispatch => {
   try {
-    const res = await axios.post(`/api/posts/${id}`)
+    const res = await axios.get(`/api/posts`)
     dispatch(viewPosts(res.data))
   } catch (err) {
     console.error(err)
@@ -48,9 +48,9 @@ export const requestViewPosts = id => async dispatch => {
 export default function(state = initalPostState, action) {
   switch (action.type) {
     case ADD_POST:
-      return action.post
+      return {all: [...state.all, action.post], single: action.post}
     case VIEW_POSTS:
-      return [...action.posts]
+      return {...state, all: [...action.posts]}
     default:
       return state
   }
