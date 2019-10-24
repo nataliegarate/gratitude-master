@@ -1,11 +1,16 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {requestViewPosts} from '../store/post'
+import {requestDeletePost} from '../store/post'
 
 class viewPosts extends React.Component {
   componentDidMount() {
     this.props.requestViewPosts()
   }
+  handleClick(campusId) {
+    this.props.requestDeletePost(postId)
+  }
+
   render() {
     const allPosts = this.props.posts.all.reverse()
     return (
@@ -17,6 +22,7 @@ class viewPosts extends React.Component {
               <div className="singlePost" key={post.id}>
                 <p>
                   {post.content} <br />Created at: {post.createdAt.slice(0, 10)}
+                  <button onClick={() => this.handleClick(post.id)}> X </button>
                 </p>
               </div>
             )
@@ -35,7 +41,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    requestViewPosts: () => dispatch(requestViewPosts())
+    requestViewPosts: () => dispatch(requestViewPosts()),
+    requestDeletePost: id => dispatch(requestDeletePost(id))
   }
 }
 
