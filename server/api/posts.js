@@ -1,6 +1,5 @@
 const router = require('express').Router()
 const Post = require('../db/models/post')
-module.exports = router
 
 //GET route to display user's posts
 
@@ -31,3 +30,20 @@ router.post('/', async (req, res, next) => {
     next(err)
   }
 })
+
+//DELETE route to delete a post
+router.delete(':/id', async (req, res, next) => {
+  console.log('ii made it here')
+  try {
+    await Post.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+    res.send(200)
+  } catch (error) {
+    next(error)
+  }
+})
+
+module.exports = router
