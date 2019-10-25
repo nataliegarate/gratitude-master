@@ -1,5 +1,4 @@
 import axios from 'axios'
-import {DELETE} from 'sequelize/types/lib/query-types'
 // import history from '../history'
 
 /**
@@ -49,8 +48,9 @@ export const requestViewPosts = () => async dispatch => {
 
 export const requestDeletePost = id => async dispatch => {
   try {
-    const res = await axios.delete(`/api/posts/${id}`)
-    dispatch(deletePost(res.data))
+    console.log('i made it here')
+    await axios.delete(`/api/posts/${id}`)
+    dispatch(deletePost(id))
   } catch (err) {
     console.error(err)
   }
@@ -68,7 +68,7 @@ export default function(state = initalPostState, action) {
     case DELETE_POST:
       return {
         ...state,
-        all: [...state].filter(post => {
+        all: [...state.all].filter(post => {
           if (post.id !== action.id) {
             return post
           }

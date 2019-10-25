@@ -21,6 +21,7 @@ router.get('/', async (req, res, next) => {
 router.post('/', async (req, res, next) => {
   try {
     // req.body.userId = req.user.id
+    console.log('YO')
     const createdPost = await Post.create({
       content: req.body.post,
       userId: req.user.id
@@ -32,13 +33,10 @@ router.post('/', async (req, res, next) => {
 })
 
 //DELETE route to delete a post
-router.delete(':/id', async (req, res, next) => {
-  console.log('ii made it here')
+router.delete('/:id', async (req, res, next) => {
   try {
     await Post.destroy({
-      where: {
-        id: req.params.id
-      }
+      where: {id: req.params.id}
     })
     res.send(200)
   } catch (error) {

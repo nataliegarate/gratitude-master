@@ -1,14 +1,13 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {requestViewPosts} from '../store/post'
-import {requestDeletePost} from '../store/post'
+import {requestViewPosts, requestDeletePost} from '../store/post'
 
 class viewPosts extends React.Component {
   componentDidMount() {
     this.props.requestViewPosts()
   }
-  handleClick(campusId) {
-    this.props.requestDeletePost(postId)
+  handleClick(id) {
+    this.props.requestDeletePost(id)
   }
 
   render() {
