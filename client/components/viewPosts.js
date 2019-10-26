@@ -1,14 +1,16 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {requestViewPosts, requestDeletePost} from '../store/post'
+import Post from './post'
 
 class viewPosts extends React.Component {
   componentDidMount() {
     this.props.requestViewPosts()
   }
-  handleDelete(id) {
-    this.props.requestDeletePost(id)
-  }
+
+  // handleUpdate(id){
+  //   document.getElementById(id).innerHTML='hello'
+  // }
 
   render() {
     const allPosts = this.props.posts.all.reverse()
@@ -17,21 +19,7 @@ class viewPosts extends React.Component {
         <h4> Your Posts </h4>
         <div id="posts">
           {allPosts.map(post => {
-            return (
-              <div className="singlePost" key={post.id}>
-                <p>
-                  {post.content} <br />Created at: {post.createdAt.slice(0, 10)}
-                  <button onClick={() => this.handleDelete(post.id)}>
-                    {' '}
-                    X{' '}
-                  </button>
-                  <button onClick={() => this.handleUpdate(post.id)}>
-                    {' '}
-                    Edit{' '}
-                  </button>
-                </p>
-              </div>
-            )
+            return <Post post={post} key={post.id} />
           })}
         </div>
       </div>
@@ -47,8 +35,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    requestViewPosts: () => dispatch(requestViewPosts()),
-    requestDeletePost: id => dispatch(requestDeletePost(id))
+    requestViewPosts: () => dispatch(requestViewPosts())
   }
 }
 
