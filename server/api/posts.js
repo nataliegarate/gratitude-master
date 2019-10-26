@@ -54,7 +54,7 @@ router.put('/:id', async (req, res, next) => {
       where: {id: req.params.id}
     })
     const updatedPost = await foundPost.update({content: req.body.post})
-    res.json(updatedPost, req.params.id)
+    res.json(updatedPost)
   } catch (err) {
     next(err)
   }
