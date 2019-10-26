@@ -45,3 +45,17 @@ router.delete('/:id', async (req, res, next) => {
 })
 
 module.exports = router
+
+//UPDATE route to update a post
+
+router.put('/:id', async (req, res, next) => {
+  try {
+    const foundPost = await Post.findOne({
+      where: {id: req.params.id}
+    })
+    const updatedPost = await foundPost.update({content: req.body.post})
+    res.json(updatedPost, req.params.id)
+  } catch (err) {
+    next(err)
+  }
+})

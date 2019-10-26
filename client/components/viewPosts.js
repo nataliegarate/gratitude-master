@@ -6,7 +6,7 @@ class viewPosts extends React.Component {
   componentDidMount() {
     this.props.requestViewPosts()
   }
-  handleClick(id) {
+  handleDelete(id) {
     this.props.requestDeletePost(id)
   }
 
@@ -21,7 +21,14 @@ class viewPosts extends React.Component {
               <div className="singlePost" key={post.id}>
                 <p>
                   {post.content} <br />Created at: {post.createdAt.slice(0, 10)}
-                  <button onClick={() => this.handleClick(post.id)}> X </button>
+                  <button onClick={() => this.handleDelete(post.id)}>
+                    {' '}
+                    X{' '}
+                  </button>
+                  <button onClick={() => this.handleUpdate(post.id)}>
+                    {' '}
+                    Edit{' '}
+                  </button>
                 </p>
               </div>
             )

@@ -7,6 +7,7 @@ import axios from 'axios'
 const ADD_POST = 'ADD_POST'
 const VIEW_POSTS = 'VIEW_POSTS'
 const DELETE_POST = 'DELETE_POST'
+const UPDATE_POST = 'UPDATE_POST'
 
 /**
  * INITIAL STATE
@@ -24,6 +25,8 @@ const addPost = post => ({type: ADD_POST, post})
 const viewPosts = posts => ({type: VIEW_POSTS, posts})
 
 const deletePost = id => ({type: DELETE_POST, id})
+
+const updatePost = post => ({type: UPDATE_POST, post})
 
 /**
  * THUNK CREATORS
@@ -56,6 +59,15 @@ export const requestDeletePost = id => async dispatch => {
   }
 }
 
+export const requestUpdatePost = (post, id) => async dispatch => {
+  try {
+    const res = await axios.put(`/api/posts${id}`, post)
+    dispatch(updatePost(res.data))
+  } catch (err) {
+    console.error(err)
+  }
+}
+
 /**
  * REDUCER
  */
@@ -71,6 +83,17 @@ export default function(state = initalPostState, action) {
         all: [...state.all].filter(post => {
           if (post.id !== action.id) {
             return post
+          }
+        })
+      }
+    case UPDATE_POST:
+      return {
+        ...state,
+        all: [...state.all].filter(post => {
+          if (post.id !== action.id) {
+            return post
+          } else {
+            return action.post
           }
         })
       }
