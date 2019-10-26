@@ -26,7 +26,7 @@ const viewPosts = posts => ({type: VIEW_POSTS, posts})
 
 const deletePost = id => ({type: DELETE_POST, id})
 
-const updatePost = post => ({type: UPDATE_POST, post})
+const updatePost = (post, id) => ({type: UPDATE_POST, post, id})
 
 /**
  * THUNK CREATORS
@@ -61,8 +61,9 @@ export const requestDeletePost = id => async dispatch => {
 
 export const requestUpdatePost = (post, id) => async dispatch => {
   try {
-    const res = await axios.put(`/api/posts${id}`, post)
-    dispatch(updatePost(res.data))
+    const res = await axios.put(`/api/posts/${id}`, post)
+    console.log('RES.DATA', res.data)
+    dispatch(updatePost(res.data, id))
   } catch (err) {
     console.error(err)
   }
