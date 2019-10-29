@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {requestViewPosts, requestDeletePost} from '../store/post'
+import {requestViewPosts} from '../store/post'
 import Post from './post'
 
 class viewPosts extends React.Component {
@@ -8,12 +8,14 @@ class viewPosts extends React.Component {
     this.props.requestViewPosts()
   }
 
-  // handleUpdate(id){
-  //   document.getElementById(id).innerHTML='hello'
-  // }
-
   render() {
-    const allPosts = this.props.posts.all.reverse()
+    const allPosts = this.props.posts.all
+      .sort(function(a, b) {
+        a = a.id
+        b = b.id
+        return a - b
+      })
+      .reverse()
     return (
       <div>
         <h4> Your Posts </h4>

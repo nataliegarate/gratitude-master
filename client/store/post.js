@@ -51,7 +51,6 @@ export const requestViewPosts = () => async dispatch => {
 
 export const requestDeletePost = id => async dispatch => {
   try {
-    console.log('i made it here')
     await axios.delete(`/api/posts/${id}`)
     dispatch(deletePost(id))
   } catch (err) {
@@ -62,7 +61,6 @@ export const requestDeletePost = id => async dispatch => {
 export const requestUpdatePost = (post, id) => async dispatch => {
   try {
     const res = await axios.put(`/api/posts/${id}`, post)
-    console.log('RES.DATA', res.data)
     dispatch(updatePost(res.data, id))
   } catch (err) {
     console.error(err)
@@ -82,15 +80,13 @@ export default function(state = initalPostState, action) {
       return {
         ...state,
         all: [...state.all].filter(post => {
-          if (post.id !== action.id) {
-            return post
-          }
+          return post.id !== action.id
         })
       }
     case UPDATE_POST:
       return {
         ...state,
-        all: [...state.all].filter(post => {
+        all: [...state.all].map(post => {
           if (post.id !== action.id) {
             return post
           } else {
