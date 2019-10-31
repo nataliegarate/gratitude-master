@@ -19,3 +19,21 @@ form div {
   margin: 1em;
   display: inline-block;
 }
+
+#inner-app {
+  display: flex;
+  flex-direction: column;
+}
+
+#landing-page {
+  display: flex;
+  flex-direction: row;
+}
+
+#paragraph {
+  flex-basis: 50%;
+}
+
+#form {
+  flex-basis: 50%;
+}
