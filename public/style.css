@@ -20,20 +20,50 @@ form div {
   display: inline-block;
 }
 
+#app {
+  height: 100vh;
+}
+
 #inner-app {
   display: flex;
   flex-direction: column;
+  height: 100vh;
+}
+
+#navBar {
+  background-color: aqua;
 }
 
 #landing-page {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background-color: red;
+  height: 100%;
 }
 
-#paragraph {
+#paragraph-container,
+#form-container {
   flex-basis: 50%;
+  align-items: center;
+  background-color: purple;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
+#form-container {
+  background-color: yellow;
+}
+
+#paragraph-text,
 #form {
-  flex-basis: 50%;
+  background-color: blue;
+  flex-basis: 33%;
+}
+
+#paragraph-text {
+  width: 80%;
 }
