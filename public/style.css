@@ -35,6 +35,10 @@ form div {
 
 #navBar {
   background-color: rgb(211, 211, 211, 0.5);
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
 }
 
 #landing-page {

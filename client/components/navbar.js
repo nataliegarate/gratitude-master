@@ -7,15 +7,15 @@ import {Login, Signup} from './auth-form'
 
 const Navbar = ({handleClick, isLoggedIn}) => (
   <div id="navBar">
-    <h1>
+    <h1 id="headline">
       {' '}
       <Link to="/">Gratitude Master</Link>
     </h1>
-    <nav>
+    <nav id="nav-links">
       {isLoggedIn ? (
         <div>
           {/* The navbar will show these links after you log in */}
-          <Link to="/home">Home</Link>
+          {/* <Link to="/home">Home</Link> */}
           <a href="#" onClick={handleClick}>
             Logout
           </a>
