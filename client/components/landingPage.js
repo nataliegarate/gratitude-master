@@ -11,13 +11,12 @@ class LandingPage extends React.Component {
       <div id="landing-page">
         <div id="paragraph-container">
           <div id="paragraph-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            <h2>
+              "I would maintain that thanks are the highest form of thought, and
+              that gratitude is happiness doubled by words"
+            </h2>
+
+            <div id="quote-author">-Gilbert Keith Chesterton</div>
           </div>
         </div>
         <div id="form-container">

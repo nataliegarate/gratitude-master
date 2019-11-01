@@ -39,6 +39,11 @@ form div {
   flex-direction: row;
   align-items: baseline;
   justify-content: space-between;
+  font-family: 'Fira Sans Condensed', sans-serif;
+}
+
+#quote-author {
+  font-family: 'Fira Sans Condensed', sans-serif;
 }
 
 #landing-page {
