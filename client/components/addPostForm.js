@@ -28,18 +28,22 @@ class AddPostForm extends React.Component {
 
   render() {
     return (
-      <div className="formContainer">
-        <div className="form">
+      <div className="half-notebook">
+        <div className="add-post-form">
           <form onSubmit={this.handleSubmit}>
-            <label htmlFor="post"> Today, I am thankful for... </label>
+            <label htmlFor="post" id="prompt-add-post">
+              {' '}
+              Today, I am thankful for...{' '}
+            </label>
             <br />
-            <input
+            <textarea
               name="post"
               value={this.state.post}
               onChange={this.handleChange}
               className="post"
               required
             />
+            <br />
             <button type="submit"> Submit </button>
           </form>
         </div>

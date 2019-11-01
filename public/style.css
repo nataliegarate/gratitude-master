@@ -42,7 +42,8 @@ form div {
   font-family: 'Fira Sans Condensed', sans-serif;
 }
 
-#quote-author {
+#quote-author,
+#prompt-add-post {
   font-family: 'Fira Sans Condensed', sans-serif;
 }
 
@@ -103,9 +104,13 @@ form div {
   margin-top: 0px;
 }
 
-input {
+input[name='password'],
+input[name='email'] {
   height: 100%;
   width: 130%;
+}
+
+input {
   border-radius: 5px;
 }
 
@@ -115,4 +120,28 @@ button {
 
 #submit-button {
   align-self: center;
+}
+
+#user-home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+#notebook {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  background-color: white;
+  margin: 10px;
+  flex-wrap: wrap;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.half-notebook {
+  flex-basis: 50%;
 }

@@ -32,6 +32,7 @@ class Post extends React.Component {
             X{' '}
           </button>
           <button onClick={() => this.setState({editing: true})}> Edit </button>
+          <hr />
         </p>
       </div>
     )
