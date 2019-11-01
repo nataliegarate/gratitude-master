@@ -1,9 +1,12 @@
 body {
   font-family: sans-serif;
+  background-image: url('https://images.pexels.com/photos/449751/pexels-photo-449751.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260.jpg');
+  background-color: #cccccc;
 }
 
 a {
   text-decoration: none;
+  color: black;
 }
 
 label {
@@ -31,7 +34,7 @@ form div {
 }
 
 #navBar {
-  background-color: aqua;
+  background-color: rgb(211, 211, 211, 0.5);
 }
 
 #landing-page {
@@ -39,7 +42,7 @@ form div {
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
-  background-color: red;
+  /* background-color: red; */
   height: 100%;
 }
 
@@ -47,23 +50,60 @@ form div {
 #form-container {
   flex-basis: 50%;
   align-items: center;
-  background-color: purple;
+  /* background-color: purple; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-#form-container {
-  background-color: yellow;
-}
-
 #paragraph-text,
 #form {
-  background-color: blue;
   flex-basis: 33%;
 }
 
 #paragraph-text {
   width: 80%;
+}
+
+.form-inner-container {
+  width: 120%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #f2f2f2;
+  justify-content: center;
+  align-items: flex-start;
+  border-radius: 5px;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 0px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 0px;
+}
+
+input {
+  height: 100%;
+  width: 130%;
+  border-radius: 5px;
+}
+
+button {
+  border-radius: 5px;
+}
+
+#submit-button {
+  align-self: center;
 }
