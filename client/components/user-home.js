@@ -10,12 +10,15 @@ export const UserHome = props => {
   const {email} = props
 
   return (
-    <div id="user-home">
+    <div>
       <h3 id="welcome-message">Welcome, {email}</h3>
-
-      <div id="notebook">
-        <AddPostForm />
-        <DisplayPosts />
+      <div id="user-home">
+        <div className="half-user-home">
+          <AddPostForm />
+        </div>
+        <div id="notebook" className="half-user-home">
+          <DisplayPosts />
+        </div>
       </div>
     </div>
   )

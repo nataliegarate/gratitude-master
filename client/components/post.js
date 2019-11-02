@@ -2,7 +2,8 @@ import React from 'react'
 import {
   requestDeletePost,
   requestViewPost,
-  requestUpdatePost
+  requestUpdatePost,
+  getSinglePost
 } from '../store/post'
 import {connect} from 'react-redux'
 
@@ -12,6 +13,7 @@ class Post extends React.Component {
     this.state = {editing: false, post: this.props.post.content}
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleSinglePost = this.handleSinglePost.bind(this)
   }
 
   handleDelete(id) {
@@ -20,9 +22,10 @@ class Post extends React.Component {
   renderNormal() {
     return (
       <div
-        className="singlePost"
+        className="view-Posts"
         key={this.props.post.id}
         id={this.props.post.id}
+        onClick={() => this.handleSinglePost(this.props.post)}
       >
         <p>
           {this.props.post.content} <br />Created at:{' '}
@@ -32,7 +35,6 @@ class Post extends React.Component {
             X{' '}
           </button>
           <button onClick={() => this.setState({editing: true})}> Edit </button>
-          <hr />
         </p>
       </div>
     )
@@ -45,7 +47,6 @@ class Post extends React.Component {
   }
 
   handleSubmit(event) {
-    console.log(this.props)
     event.preventDefault()
     this.props.requestUpdatePost(this.state, this.props.post.id)
     this.setState({
@@ -53,25 +54,27 @@ class Post extends React.Component {
     })
   }
 
+  handleSinglePost(post) {
+    this.props.getSinglePost(post)
+  }
+
   renderEdit() {
     return (
-      <div className="formContainer">
-        <div className="form">
-          <form onSubmit={this.handleSubmit}>
-            <input
-              name="post"
-              value={this.state.post}
-              onChange={this.handleChange}
-              className="post"
-              required
-            />
-            <button type="submit"> Submit </button>
-            <button onClick={() => this.setState({editing: false})}>
-              {' '}
-              Cancel{' '}
-            </button>
-          </form>
-        </div>
+      <div className="view-Posts">
+        <form onSubmit={this.handleSubmit}>
+          <input
+            name="post"
+            value={this.state.post}
+            onChange={this.handleChange}
+            className="post"
+            required
+          />
+          <button type="submit"> Submit </button>
+          <button onClick={() => this.setState({editing: false})}>
+            {' '}
+            Cancel{' '}
+          </button>
+        </form>
       </div>
     )
   }
@@ -85,12 +88,19 @@ class Post extends React.Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    posts: state.post
+  }
+}
+
 const mapDispatchToProps = dispatch => {
   return {
     requestViewPosts: () => dispatch(requestViewPost()),
     requestDeletePost: id => dispatch(requestDeletePost(id)),
-    requestUpdatePost: (id, post) => dispatch(requestUpdatePost(id, post))
+    requestUpdatePost: (id, post) => dispatch(requestUpdatePost(id, post)),
+    getSinglePost: post => dispatch(getSinglePost(post))
   }
 }
 
-export default connect(null, mapDispatchToProps)(Post)
+export default connect(mapStateToProps, mapDispatchToProps)(Post)

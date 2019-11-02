@@ -43,7 +43,8 @@ form div {
 }
 
 #quote-author,
-#prompt-add-post {
+#prompt-add-post,
+#your-post {
   font-family: 'Fira Sans Condensed', sans-serif;
 }
 
@@ -126,22 +127,53 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
   flex-direction: column;
+  flex-wrap: wrap;
 }
 
 #notebook {
   display: flex;
   justify-content: center;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
+  flex-wrap: wrap;
+}
+
+.add-post-form-container {
   background-color: white;
   margin: 10px;
-  flex-wrap: wrap;
   padding: 10px;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+}
+
+textarea {
+  height: 150px;
+  width: 570px;
   border-radius: 5px;
 }
 
-.half-notebook {
+.half-user-home {
   flex-basis: 50%;
+}
+
+#welcome-message {
+  flex-basis: 100%;
+}
+
+#add-post-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.view-Posts {
+  width: 600px;
+  background-color: white;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
 }

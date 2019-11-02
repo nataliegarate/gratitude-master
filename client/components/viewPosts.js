@@ -18,7 +18,7 @@ class viewPosts extends React.Component {
       .reverse()
     return (
       <div className="half-notebook">
-        <h4> Your Posts </h4>
+        <h3 id="your-post"> Your Posts </h3>
         <div id="posts">
           {allPosts.map(post => {
             return <Post post={post} key={post.id} />

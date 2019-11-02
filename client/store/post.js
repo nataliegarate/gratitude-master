@@ -8,6 +8,7 @@ const ADD_POST = 'ADD_POST'
 const VIEW_POSTS = 'VIEW_POSTS'
 const DELETE_POST = 'DELETE_POST'
 const UPDATE_POST = 'UPDATE_POST'
+const VIEW_POST = 'VIEW_POST'
 
 /**
  * INITIAL STATE
@@ -23,6 +24,8 @@ const initalPostState = {
 const addPost = post => ({type: ADD_POST, post})
 
 const viewPosts = posts => ({type: VIEW_POSTS, posts})
+
+const viewPost = post => ({type: VIEW_POST, post})
 
 const deletePost = id => ({type: DELETE_POST, id})
 
@@ -44,6 +47,14 @@ export const requestViewPosts = () => async dispatch => {
   try {
     const res = await axios.get(`/api/posts`)
     dispatch(viewPosts(res.data))
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+export const getSinglePost = post => dispatch => {
+  try {
+    dispatch(viewPost(post))
   } catch (err) {
     console.error(err)
   }
@@ -76,6 +87,8 @@ export default function(state = initalPostState, action) {
       return {all: [...state.all, action.post], single: action.post}
     case VIEW_POSTS:
       return {...state, all: [...action.posts]}
+    case VIEW_POST:
+      return {...state, single: action.post}
     case DELETE_POST:
       return {
         ...state,
