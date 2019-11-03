@@ -19,26 +19,6 @@ class Post extends React.Component {
   handleDelete(id) {
     this.props.requestDeletePost(id)
   }
-  renderNormal() {
-    return (
-      <div
-        className="view-Posts"
-        key={this.props.post.id}
-        id={this.props.post.id}
-        onClick={() => this.handleSinglePost(this.props.post)}
-      >
-        <p>
-          {this.props.post.content} <br />Created at:{' '}
-          {this.props.post.createdAt.slice(0, 10)}
-          <button onClick={() => this.handleDelete(this.props.post.id)}>
-            {' '}
-            X{' '}
-          </button>
-          <button onClick={() => this.setState({editing: true})}> Edit </button>
-        </p>
-      </div>
-    )
-  }
 
   handleChange(event) {
     this.setState({
@@ -61,20 +41,56 @@ class Post extends React.Component {
   renderEdit() {
     return (
       <div className="view-Posts">
-        <form onSubmit={this.handleSubmit}>
-          <input
-            name="post"
-            value={this.state.post}
-            onChange={this.handleChange}
-            className="post"
-            required
-          />
-          <button type="submit"> Submit </button>
+        <div className="view-post-buttons">
           <button onClick={() => this.setState({editing: false})}>
-            {' '}
-            Cancel{' '}
+            Cancel
           </button>
-        </form>
+        </div>
+        <br />
+        <input
+          name="post"
+          value={this.state.post}
+          onChange={this.handleChange}
+          className="post"
+          required
+        />
+        <button id="update-button" onClick={() => this.handleSubmit(event)}>
+          {' '}
+          Update{' '}
+        </button>
+
+        <small> Created on: {this.props.post.createdAt.slice(0, 10)} </small>
+      </div>
+    )
+  }
+
+  renderNormal() {
+    return (
+      <div
+        className="view-Posts"
+        key={this.props.post.id}
+        id={this.props.post.id}
+        onClick={() => this.handleSinglePost(this.props.post)}
+      >
+        <div className="view-post-buttons">
+          <button
+            className="view-post-button"
+            onClick={() => this.handleDelete(this.props.post.id)}
+          >
+            Delete
+          </button>
+          <button
+            className="view-post-button"
+            onClick={() => this.setState({editing: true})}
+          >
+            {' '}
+            Edit
+          </button>
+        </div>
+        <br />
+        {this.props.post.content} <br />
+        <br />
+        <small>Created on: {this.props.post.createdAt.slice(0, 10)}</small>
       </div>
     )
   }

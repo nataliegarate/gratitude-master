@@ -44,8 +44,12 @@ form div {
 
 #quote-author,
 #prompt-add-post,
-#your-post {
+#your-post,
+#add-post-heading {
   font-family: 'Fira Sans Condensed', sans-serif;
+}
+#prompt-add-post {
+  font-size: 20px;
 }
 
 #landing-page {
@@ -53,7 +57,6 @@ form div {
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
-  /* background-color: red; */
   height: 100%;
 }
 
@@ -61,7 +64,6 @@ form div {
 #form-container {
   flex-basis: 50%;
   align-items: center;
-  /* background-color: purple; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -140,7 +142,6 @@ button {
 }
 
 .add-post-form-container {
-  background-color: white;
   margin: 10px;
   padding: 10px;
   border-radius: 5px;
@@ -150,8 +151,8 @@ button {
 }
 
 textarea {
-  height: 150px;
-  width: 570px;
+  height: 100px;
+  width: 600px;
   border-radius: 5px;
 }
 
@@ -176,4 +177,24 @@ textarea {
   padding: 10px;
   margin: 10px;
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.view-post-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+#update-button {
+  width: 10%;
+  align-self: center;
+}
+
+#your-post,
+#add-post-heading {
+  background-color: rgb(211, 211, 211, 0.5);
+  border-radius: 5px;
+  padding-left: 5px;
 }
