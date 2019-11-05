@@ -53,7 +53,7 @@ class Post extends React.Component {
           name="post"
           value={this.state.post}
           onChange={this.handleChange}
-          className="post"
+          className="view-post-text"
           required
         />
         <button id="update-button" onClick={() => this.handleSubmit(event)}>
@@ -67,7 +67,6 @@ class Post extends React.Component {
   }
 
   renderNormal() {
-    console.log(this.props.post.createdAt)
     let date = this.props.post.createdAt.slice(0, 10).split('-')
     let formattedDate = `${date[1]}/${date[2]}/${date[0]}`
     return (
@@ -93,8 +92,10 @@ class Post extends React.Component {
           </button>
         </div>
         <br />
-        {this.props.post.content} <br />
-        <br />
+        <div className="view-post-text">
+          {this.props.post.content} <br />
+          <br />
+        </div>
         <small>Created on: {formattedDate}</small>
       </div>
     )

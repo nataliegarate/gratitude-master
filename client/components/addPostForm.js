@@ -35,7 +35,7 @@ class AddPostForm extends React.Component {
             name="post"
             value={this.state.post}
             onChange={this.handleChange}
-            className="post"
+            className="add-post"
             required
           />
           <center>

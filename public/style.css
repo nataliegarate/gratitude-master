@@ -30,7 +30,6 @@ form div {
 #inner-app {
   display: flex;
   flex-direction: column;
-  height: 100vh;
 }
 
 #navBar {
@@ -150,10 +149,11 @@ button {
   width: 600px;
 }
 
-textarea[name='post'] {
+.add-post {
   height: 100px;
   width: 600px;
   border-radius: 5px;
+  font-size: 20px;
 }
 
 .half-user-home {
@@ -197,4 +197,7 @@ textarea[name='post'] {
   background-color: rgb(211, 211, 211, 0.5);
   border-radius: 5px;
   padding-left: 5px;
+}
+.view-post-text {
+  font-size: 15px;
 }
