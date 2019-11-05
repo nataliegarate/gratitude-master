@@ -150,7 +150,7 @@ button {
   width: 600px;
 }
 
-textarea {
+textarea[name='post'] {
   height: 100px;
   width: 600px;
   border-radius: 5px;

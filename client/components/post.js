@@ -39,6 +39,8 @@ class Post extends React.Component {
   }
 
   renderEdit() {
+    let date = this.props.post.createdAt.slice(0, 10).split('-')
+    let formattedDate = `${date[1]}/${date[2]}/${date[0]}`
     return (
       <div className="view-Posts">
         <div className="view-post-buttons">
@@ -47,7 +49,7 @@ class Post extends React.Component {
           </button>
         </div>
         <br />
-        <input
+        <textarea
           name="post"
           value={this.state.post}
           onChange={this.handleChange}
@@ -59,12 +61,15 @@ class Post extends React.Component {
           Update{' '}
         </button>
 
-        <small> Created on: {this.props.post.createdAt.slice(0, 10)} </small>
+        <small> Created on: {formattedDate} </small>
       </div>
     )
   }
 
   renderNormal() {
+    console.log(this.props.post.createdAt)
+    let date = this.props.post.createdAt.slice(0, 10).split('-')
+    let formattedDate = `${date[1]}/${date[2]}/${date[0]}`
     return (
       <div
         className="view-Posts"
@@ -90,7 +95,7 @@ class Post extends React.Component {
         <br />
         {this.props.post.content} <br />
         <br />
-        <small>Created on: {this.props.post.createdAt.slice(0, 10)}</small>
+        <small>Created on: {formattedDate}</small>
       </div>
     )
   }
