@@ -1,4 +1,4 @@
-# Gratitude Tracker
+# Gratitude Master
 
 ## Start
 
