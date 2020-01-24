@@ -79,14 +79,16 @@ form div {
 }
 
 .form-inner-container {
-  width: 120%;
-  height: 100%;
+  width: 270px;
+  height: auto;
   display: flex;
   flex-direction: column;
   background-color: #f2f2f2;
   justify-content: center;
   align-items: flex-start;
   border-radius: 5px;
+  padding-top: 30px;
+  padding-bottom: 10px;
 }
 
 .row {
@@ -108,8 +110,8 @@ form div {
 
 input[name='password'],
 input[name='email'] {
-  height: 100%;
-  width: 130%;
+  height: 150%;
+  width: 170%;
 }
 
 input {
@@ -118,6 +120,8 @@ input {
 
 button {
   border-radius: 5px;
+  height: 30px;
+  padding: 7px;
 }
 
 #submit-button {
@@ -200,4 +204,15 @@ button {
 }
 .view-post-text {
   font-size: 15px;
+}
+
+@media only screen and (max-width: 725px) {
+  #paragraph-container {
+    display: none;
+  }
+
+  .form-inner-container {
+    width: 250px;
+    height: auto;
+  }
 }
