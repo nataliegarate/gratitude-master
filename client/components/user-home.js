@@ -12,14 +12,13 @@ export const UserHome = props => {
   return (
     <div>
       <h3 id="welcome-message">Welcome, {email}</h3>
+      <h3 id="add-post-heading"> Today, I am thankful for...</h3>
+
       <div id="user-home">
-        <div className="half-user-home">
-          <h3 id="add-post-heading"> Today, I am thankful for...</h3>
-          <AddPostForm />
-        </div>
-        <div id="notebook" className="half-user-home">
-          <DisplayPosts />
-        </div>
+        <AddPostForm />
+      </div>
+      <div id="notebook" className="half-user-home">
+        <DisplayPosts />
       </div>
     </div>
   )

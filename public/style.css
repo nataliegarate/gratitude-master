@@ -39,6 +39,8 @@ form div {
   align-items: baseline;
   justify-content: space-between;
   font-family: 'Fira Sans Condensed', sans-serif;
+  border-radius: 5px;
+  padding-left: 10px;
 }
 
 #quote-author,
@@ -160,10 +162,6 @@ button {
   font-size: 20px;
 }
 
-.half-user-home {
-  flex-basis: 50%;
-}
-
 #welcome-message {
   flex-basis: 100%;
 }
@@ -201,9 +199,18 @@ button {
   background-color: rgb(211, 211, 211, 0.5);
   border-radius: 5px;
   padding-left: 5px;
+  width: 100%;
 }
 .view-post-text {
   font-size: 15px;
+}
+
+#add-post-heading {
+  width: 99%;
+  flex-basis: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 10px;
 }
 
 @media only screen and (max-width: 725px) {
@@ -215,4 +222,11 @@ button {
     width: 250px;
     height: auto;
   }
+
+  .add-post-form-container {
+    display: flex;
+  }
+  /* #add-post-heading {
+    width:  100%;
+  } */
 }
