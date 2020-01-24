@@ -80,27 +80,15 @@ form div {
   width: 80%;
 }
 
-.form-inner-container {
-  width: 270px;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  background-color: #f2f2f2;
-  justify-content: center;
-  align-items: flex-start;
-  border-radius: 5px;
-  padding-top: 30px;
-  padding-bottom: 10px;
-}
-
 .row {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  margin: 0px;
 }
 
 .col-75 {
-  float: left;
-  width: 75%;
+  width: 83%;
   margin-top: 0px;
 }
 
@@ -113,7 +101,7 @@ form div {
 input[name='password'],
 input[name='email'] {
   height: 150%;
-  width: 170%;
+  width: 100%;
 }
 
 input {
@@ -122,12 +110,41 @@ input {
 
 button {
   border-radius: 5px;
-  height: 30px;
-  padding: 7px;
+  height: 25px;
+  padding: 5px;
+  margin: 3px;
+  border-color: rgb(211, 211, 211, 0.5);
+}
+
+button:hover {
+  background-color: rgb(211, 211, 211, 0.5);
+}
+
+#total-form {
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+#total-form h3 {
+  text-align: center;
+  text-decoration: underline;
+}
+
+.form-inner-container {
+  width: 270px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 #submit-button {
   align-self: center;
+  width: 40%;
 }
 
 #user-home {
@@ -190,7 +207,7 @@ button {
 }
 
 #update-button {
-  width: 10%;
+  width: 15%;
   align-self: center;
 }
 
@@ -203,6 +220,7 @@ button {
 }
 .view-post-text {
   font-size: 15px;
+  word-wrap: break-word;
 }
 
 #add-post-heading {
@@ -226,7 +244,70 @@ button {
   .add-post-form-container {
     display: flex;
   }
-  /* #add-post-heading {
-    width:  100%;
-  } */
+  .add-post-form-container {
+    width: 400px;
+  }
+
+  .add-post {
+    height: 100px;
+    width: 400px;
+    font-size: 15px;
+  }
+  .view-Posts {
+    width: 400px;
+  }
+  button {
+    padding: 3px;
+    height: auto;
+    margin: 2px;
+  }
+  #total-form {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+@media only screen and (max-width: 458px) {
+  .form-inner-container {
+    width: 225px;
+    height: auto;
+  }
+  .add-post-form-container {
+    width: 300px;
+  }
+  .add-post {
+    height: 75px;
+    width: 300px;
+    font-size: 12px;
+  }
+  .view-Posts {
+    width: 300px;
+  }
+  .view-post-text {
+    font-size: 12px;
+  }
+
+  button {
+    padding: 1px;
+    height: auto;
+    margin: 1px;
+  }
+  #add-post-heading {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+  .view-post-text {
+    height: auto;
+  }
+  #total-form {
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    padding-top: 5x;
+    padding-bottom: 5px;
+  }
+
+  #total-form h3 {
+    margin: 14px;
+    margin-bottom: 6px;
+  }
 }
