@@ -22,21 +22,31 @@ class LandingPage extends React.Component {
         <div id="form-container">
           {this.state.form === 'signUp' ? (
             <div id="total-form">
+              <h3>Signup</h3>
               <Signup />
               <div className="toggle-form">
                 <br />
-                Already a member?{' '}
-                <a onClick={() => this.setState({form: 'login'})}>Login. </a>
+                <center>
+                  Already a member?{' '}
+                  <a onClick={() => this.setState({form: 'login'})}>Login. </a>
+                </center>
               </div>
             </div>
           ) : (
-            <div>
+            <div id="total-form">
+              <h3>Login</h3>
               <Login />
               <br />
 
               <div className="toggle-form">
-                Haven't Signed up?
-                <a onClick={() => this.setState({form: 'signUp'})}> Signup. </a>
+                <center>
+                  {' '}
+                  Haven't Signed up?
+                  <a onClick={() => this.setState({form: 'signUp'})}>
+                    {' '}
+                    Signup.{' '}
+                  </a>
+                </center>
               </div>
             </div>
           )}
