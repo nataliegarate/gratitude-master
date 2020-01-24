@@ -48,7 +48,6 @@ class Post extends React.Component {
             Cancel
           </button>
         </div>
-        <br />
         <textarea
           name="post"
           value={this.state.post}
