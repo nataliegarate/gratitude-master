@@ -19,11 +19,15 @@ class viewPosts extends React.Component {
     return (
       <div className="half-notebook">
         <h3 id="your-post"> Your Posts </h3>
-        <div id="posts">
-          {allPosts.map(post => {
-            return <Post post={post} key={post.id} />
-          })}
-        </div>
+        {allPosts.length ? (
+          <div id="posts">
+            {allPosts.map(post => {
+              return <Post post={post} key={post.id} />
+            })}
+          </div>
+        ) : (
+          <p>No posts to display!</p>
+        )}
       </div>
     )
   }
