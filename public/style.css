@@ -176,6 +176,7 @@ button:hover {
   width: 600px;
   border-radius: 5px;
   font-size: 20px;
+  border: none;
 }
 
 #welcome-message {
