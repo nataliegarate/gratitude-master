@@ -9,7 +9,9 @@ const Navbar = ({handleClick, isLoggedIn}) => (
   <div id="navBar">
     <h1 id="headline">
       {' '}
-      <Link to="/">Gratitude Master</Link>
+      <Link to="/">
+        Gratitude Master<i className="fas fa-spa" />{' '}
+      </Link>
     </h1>
     <nav id="nav-links">
       {isLoggedIn ? (

@@ -30,7 +30,9 @@ const AuthForm = props => {
       </div>
 
       <div className="row" id="submit-button">
-        <button type="submit">{displayName}</button>
+        <button id="home-button" type="submit">
+          {displayName}
+        </button>
       </div>
 
       {error && error.response && <div> {error.response.data} </div>}
