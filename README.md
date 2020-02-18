@@ -4,7 +4,8 @@ Gratitude Master is an online journal space that encourages users to track what 
 
 ## Start
 
-Running `npm run start-dev` will make great things happen!
+First, run `npm install` to make sure you download all dependencies
+Next, running `npm run start-dev` will bring up the project on the local host.
 
 If you want to run the server and/or `webpack` separately, you can also
 `npm run start-server` and `npm run build-client`.
