@@ -2,7 +2,7 @@
 
 Gratitude Master is an online journal space that encourages users to track what makes them happy. Logged-in users can create, read, update, and delete their entries which are stored in the PostgreSQL database.
 
-## Start
+## Getting Started
 1. Fork and/or clone this repo
 
 2. Run `npm install` to make sure you download all dependencies.
